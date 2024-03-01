@@ -1,0 +1,59 @@
+﻿<!-- Copyright (c) Microsoft Corporation. All rights reserved.
+     Licensed under the MIT License. -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>RiseTech - Boardingfy - @ViewData["Title"]</title>
+    <meta name="description" content="RiseTech Verifiable Credentials Expert">
+    <meta name="author" content="RiseTech">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="RiseTechFavicon.png">
+    <link rel="shortcut icon" href="RiseTechFavicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <!-- header section starts  -->
+
+    <header>
+        <section class="nav">
+            <!-- We can also insert any logo here     -->
+
+            <!-- We can also insert any logo here     -->
+            <div class="logo">
+                <a href="index" id="homeLogo"><img src="RT_logo_color-01.svg" alt="RiseTech" /></a>
+                <i class="fas logoText">Onboarding demo</i>
+            </div>
+
+            <!--  checkbox to control the icon's state    -->
+            <input id="menu-toggle" type="checkbox" />
+            <label class="menu-button-container" for="menu-toggle">
+                <div class="menu-button"></div>
+            </label>
+            <!--  main menu    -->
+            <ul class="menu">
+                <li><a href="index">Home</a></li>
+                @* <li><a href="#service">Services</a></li>
+                <li><a href="#speciality">About</a></li>
+                <li><a href="#review">Contact</a></li> *@
+            </ul>
+        </section>
+    </header>
+
+    <!-- header section ends -->
+    <div id="wrap">
+        <main role="main" class="starter-template">
+            @RenderBody()
+        </main>
+
+        <footer>
+            <p class="text-center text-gray tiny-text margin-top-75"></BR>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

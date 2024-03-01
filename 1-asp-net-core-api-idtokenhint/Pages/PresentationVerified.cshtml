@@ -1,0 +1,208 @@
+﻿@page
+@model AspNetCoreVerifiableCredentials.Pages.VerifierModel
+@{
+    ViewData["Title"] = "Verifier";
+}
+
+
+<div class="responsive-container-block container">
+    <p class="text-blk team-head-text">You have been verified!</p>
+    <div class="responsive-container-block">
+        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="https://avatar.iran.liara.run/public/boy?username=Ash" />
+                </div>
+                <p id="fullName" class="text-blk name"></p>
+                <p class="text-blk position"></p>
+                <p class="text-blk feature-text">Issued On</p>
+                <p id="issuanceDate" class="text-blk feature-text"></p>
+                <p class="text-blk feature-text">Expiration Date</p>
+                <p id="expirationDate" class="text-blk feature-text"></p>
+                @* <div class="social-icons">
+                <a href="https://www.twitter.com" target="_blank">
+                <img class="twitter-icon"
+                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon.svg" />
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                <img class="facebook-icon"
+                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg" />
+                </a>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="wrap" style="display: none;">
+    <div style="text-align: center;">
+        <img src="VerifiedCredentialExpert-icon.png" height=200px; />
+        <h1 id="vcType">VerifiedEmployee Presentation</h1>
+
+
+        <div id="message-wrapper" class="margin-bottom-75 margin-top-75" style="display: block">
+            <i class="fas fa-user-check green icon-text-large margin-bottom-25"></i>
+            <div id="message"></div>
+            <br />
+
+            <table id="claims">
+                <thead>
+                    <th style="width:25%">Claims</th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <br />
+
+            <table id="vcinfo">
+                <thead>
+                    <th style="width:25%">VC Details</th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <br />
+        </div>
+
+        <script src="verifiedid.requestservice.client.js"></script>
+        <script src="verifiedid.uihandler.js"></script>
+
+        <script>
+
+            @* var firstName = sessionStorage.getItem("firstName");
+                var lastName = sessionStorage.getItem("lastName");
+                var fullName = firstName + " " + lastName;
+
+                document.getElementById("fullName").innerHTML = fullName; *@
+
+                //sessionStorage.clear();
+
+                function join(date, options, separator) {
+                    function format(option) {
+                        let formatter = new Intl.DateTimeFormat('en', option);
+                        return formatter.format(date);
+                    }
+                    return options.map(format).join(separator);
+                }
+
+            let options = [{ day: 'numeric' }, { month: 'short' }, { year: 'numeric' }];
+
+
+            function addTableRowLabel(tbodyRef, key) {
+                var row = tbodyRef.insertRow(0);
+                (row.insertCell(0)).innerHTML = key;
+                return row;
+            }
+            function addTableRow(tbodyRef, key, value) {
+                var row = addTableRowLabel(tbodyRef, key);
+                (row.insertCell(1)).innerHTML = value;
+            }
+
+            function drawClaimsTable(claims) {
+                if (Object.keys(claims).length > 0) {
+                    const firstName = Object.values(claims)[0];
+                    const lastName = Object.values(claims)[1];
+                    const fullName = firstName + " " + lastName;
+                    document.getElementById("fullName").innerHTML = fullName;
+
+                    var tbodyRef = document.getElementById('claims').getElementsByTagName('tbody')[0];
+                    var idx = 0;
+                    for (idx = Object.keys(claims).length - 1; idx >= 0; idx--) {
+                        var claimName = Object.keys(claims)[idx];
+                        if (claimName == "photo" || claimName == "picture") {
+                            var img = document.createElement('img');
+                            img.width = 100;
+                            img.src = "data:image/*;base64," + decodeURI(claims[Object.keys(claims)[idx]]).replaceAll("_", "/").replaceAll("-", "+");
+                            var row = addTableRowLabel(tbodyRef, claimName);
+                            (row.insertCell(1)).appendChild(img);
+                        } else {
+                            addTableRow(tbodyRef, claimName, claims[Object.keys(claims)[idx]]);
+                        }
+                    }
+                }
+            }
+            function drawVcInfoTable(respMsg, payload) {
+                if (Object.keys(payload).length > 0) {
+                    //console.log('payload', respMsg);
+
+                    var tbodyRef = document.getElementById('vcinfo').getElementsByTagName('tbody')[0];
+                    var idx = 0;
+                    for (idx = Object.keys(payload).length - 1; idx >= 0; idx--) {
+                        var claimName = Object.keys(payload)[idx];
+                        if (claimName !== "claims") {
+                            if (Object.keys(payload[Object.keys(payload)[idx]]).length > 0) {
+                                addTableRow(tbodyRef, claimName, JSON.stringify(payload[Object.keys(payload)[idx]]))
+                            } else {
+                                addTableRow(tbodyRef, claimName, payload[Object.keys(payload)[idx]])
+                            }
+                        }
+                    }
+                    if (respMsg.jti) {
+                        addTableRow(tbodyRef, "jti", respMsg.jti);
+                    }
+                    var vcSubject = respMsg.subject.split(":");
+                    addTableRow(tbodyRef, "subject", vcSubject[0] + ":" + vcSubject[1] + vcSubject[2] + "...");
+                    if (respMsg.revocationStatus) {
+                        addTableRow(tbodyRef, "revocationStatus", respMsg.revocationStatus);
+                    }
+                    if (respMsg.domainValidation) {
+                        addTableRow(tbodyRef, "domainValidation url", respMsg.domainValidation);
+                    }
+                    if (respMsg.matchConfidenceScore) {
+                        addTableRow(tbodyRef, "faceCheck matchConfidenceScore", respMsg.matchConfidenceScore);
+                    }
+                }
+            }
+            function getPresentationResult(requestId) {
+                fetch(`${requestService.apiPollPresentationRequest}?id=${requestId}`)
+                    .then(response => response.text())
+                    .catch(error => document.getElementById("message").innerHTML = error)
+                    .then(response => {
+                        if (response.length > 0) {
+                            respMsg = JSON.parse(response);
+                            if (respMsg.status == 'presentation_verified') {
+                                document.getElementById('vcType').innerText = respMsg.type[1] + " " + respMsg.message;
+                                document.getElementById('message').innerHTML = "";
+
+                                const issuanceDate = join(new Date(respMsg.issuanceDate), options, ' ');
+                                const expirationDate = join(new Date(respMsg.expirationDate), options, ' ');
+                                document.getElementById('issuanceDate').innerText = issuanceDate;
+                                document.getElementById('expirationDate').innerText = expirationDate;
+
+                                drawClaimsTable(respMsg.payload[0].claims);
+                                drawVcInfoTable(respMsg, respMsg.payload[0]);
+                            }
+                        }
+                    })
+            }
+
+
+            function parseParms(str) {
+                var pieces = str.split("&"), data = {}, i, parts;
+                for (i = 0; i < pieces.length; i++) {
+                    parts = pieces[i].split("=");
+                    if (parts.length < 2) {
+                        parts.push("");
+                    }
+                    data[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+                }
+                return data;
+            }
+
+            window.onload = function () {
+                var requestId = parseParms(document.location.search.substring(1)).id;
+                if (requestId) {
+                    getPresentationResult(requestId)
+                }
+            }
+        </script>
+    </div>
+
+
+</div>
+<div id="payload" style="text-align:left; display:none; margin:25px"></div>

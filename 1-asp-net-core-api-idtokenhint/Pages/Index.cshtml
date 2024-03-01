@@ -1,0 +1,118 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+@* <div class="container">
+<div style="text-align: center; margin: 50px auto;">
+<h1>RiseTech: The Verifiable Credential Expert</h1>
+</div>
+<div class="card-holder">
+<div class="card-list">
+<a id="idIssue" href="#" class="card-item">
+<span class="developer">Issue Credential</span>
+<h3>Issue your personal ID</h3>
+<div class="arrow">
+<i class="fas fa-arrow-right card-icon"></i>
+</div>
+</a>
+<a id="idVerify" href="#" class="card-item">
+<span class="designer">Verify Credential</span>
+<h3>Verify your new card</h3>
+<div class="arrow">
+<i class="fas fa-arrow-right card-icon"></i>
+</div>
+</a>
+</div>
+</div>
+</div> *@
+
+
+<!-- hero section starts  -->
+
+<section class="home" id="home">
+    <div class="content">
+        <!-- Tagline -->
+        <h3 class="mainfont">
+            Welcome to the RiseTech team!
+        </h3>
+        <p id="p-1">
+            We are excited to have you onboard!
+        </p>
+        <!--Description  -->
+        <p id="p-2">Begin with your personalized RiseTech ID card, securely stored by you. Make sure to have the
+            Microsoft
+            Authenticator App for safekeeping.</p>
+
+        <p id="p-3">To begin:</p>
+
+        <ol class="alternating-colors">
+            <li>
+                <p>Enter your name and click next.</p>
+            </li>
+            <li>
+                <p>Scan the QR code to receive your unique identity card and follow the steps shown in the Microsoft
+                    Authenticator App. </p>
+            </li>
+            <li>
+                <p>Verify your ID card credentials.</p>
+            </li>
+        </ol>
+
+        <!-- CTA -->
+        <form class="cf">
+            <div class="half left cf">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" />
+                <input type="text" id="lastName" name="lastName" placeholder="Last name" />
+                <button type="button" value="" id="idVerify" class="btn">
+                    <span class="form-next"></span>
+                    <i class="fas fa-arrow-right card-icon"></i>
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+    <!-- Hero image -->
+
+    <div class="image">
+        <img src="pexels-alexander-suhorucov-6457562.jpg" alt=" " />
+    </div>
+</section>
+
+<!-- hero section ends   -->
+
+<script>
+    var idIssue = document.getElementById('idIssue');
+    var idVerify = document.getElementById('idVerify');
+
+    var inputFirstName = document.getElementById("firstName");
+    var inputLastName = document.getElementById("lastName");
+
+    sessionStorage.clear();
+
+    @* idIssue.addEventListener('click', () => {
+        window.location = "issuer";
+        }) *@
+        idVerify.addEventListener('click', () => {
+            var firstName = inputFirstName.value;
+            var lastName = inputLastName.value;
+
+            sessionStorage.setItem("firstName", firstName);
+            sessionStorage.setItem("lastName", lastName);
+
+            var expires = (new Date(Date.now() + 86400 * 1000)).toUTCString();
+            document.cookie = "firstName=" + firstName + "; expires=" + expires + ";path=/";
+            document.cookie = "lastName=" + lastName + "; expires=" + expires + ";path=/";
+
+            window.location = "verifier";
+        })
+
+</script>
+
+@* <div style="text-align: center;">
+
+<button type="button" id="idIssue" class="button">Issue Credential</button>
+<button type="button" id="idVerify" class="button">Verify Credential</button>
+
+</div> *@
