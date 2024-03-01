@@ -22,7 +22,7 @@ Welcome to Microsoft Entra Verified ID. In this sample, we'll teach you to issue
 
 Complete the [setup](#Setup) before deploying to Azure so that you have all the required parameters.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fportal.azure.com%2F%23create%2FMicrosoft.Template%2Furi%2Fhttps%3A%2F%2Fraw.githubusercontent.com%2FBahadurSinghRT%2Fverifiable-credentials%2Fmain%2F1-asp-net-core-api-idtokenhint%2FARMTemplate%2Ftemplate.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/microsoft.template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FBahadurSinghRT%2Fverifiable-credentials%2Fmain%2F1-asp-net-core-api-idtokenhint%2FARMTemplate%2Ftemplate.json%0A)
 
 You will be asked to enter some parameters during deployment about your app registration and your Verified ID details. You will find these values in the admin portal.
 
