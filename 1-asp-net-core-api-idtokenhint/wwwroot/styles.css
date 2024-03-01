@@ -859,7 +859,6 @@ table th {
 
 /* Presentation */
 
-
 .responsive-cell-block {
   min-height: 75px;
 }
@@ -934,7 +933,7 @@ table th {
   background-color: #fff;
 }
 
-.name {
+#fullName {
   margin-top: 20px;
   margin-right: 0px;
   margin-bottom: 5px;
