@@ -15,7 +15,7 @@
       "metadata": {
         "description": "Github repo URL"
       },
-      "defaultValue": "https://github.com/BahadurSinghRT/verified-credentials.git"
+      "defaultValue": "https://github.com/BahadurSinghRT/verifiable-credentials.git"
     },
     "branch": {
       "type": "string",
