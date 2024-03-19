@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap");
-
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: url(Poppins-Regular.ttf)
+}
 
 * {
   
@@ -15,11 +17,13 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'Ubunto-bold';
 }
 
 body{
+  font-family: 'Ubunto-bold';
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(
     to top,
     #eeebf2 0%,
@@ -69,11 +73,32 @@ section {
   text-align: justify;
   position: relative;
   margin: 0 0px 0px 22px;
+  font-family: 'Ubunto-bold';
+  font-style: normal;
 }
 
 .logo img {
   max-width: 180px;
   min-height: 50px;
+}
+
+
+.container-fluid i {
+  padding-right: 2rem;
+  padding-left: 2rem;
+  color: #ffffff;
+  text-align: justify;
+  position: relative;
+  margin: 0 0px 0px 22px;
+  font-family: 'Ubunto-bold';
+  font-style: normal;
+  font-size: 2.2rem;
+}
+
+.container-fluid img {
+  max-width: 180px;
+  min-height: 50px;
+  margin: -2.5rem auto;
 }
 
 .logoText:before {
@@ -84,7 +109,8 @@ section {
   top: calc(50% - 30px);
   height: 52px;
   width: 1px;
-  background-color: #30302e;
+  background-color: #ffffff;
+  margin: 1rem auto;
 }
 
 .order {
@@ -120,6 +146,7 @@ section {
   margin: 0 1rem;
   overflow: hidden;
 }
+
 /*Container for menu button  */
 
 .menu-button-container {
@@ -224,7 +251,7 @@ section {
 }
 
 .mainfont {
-  font-family: "Jacques Francois Shadow", cursive;
+  font-family: "Ubuntu-Bold", cursive;
 }
 
 .home .content p {
@@ -234,8 +261,12 @@ section {
   margin: 0 0 0 1.5rem;
 }
 
-#p-1, #p-2,#p-3 {
+#p-1, #p-2 {
   color: #fff;
+}
+
+#p-3 {
+  font-weight: 700;
 }
 
 .heading {
@@ -828,7 +859,7 @@ font-size: 1.5em;
 /*------*/
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif, "Ubuntu-Bold";
   border-collapse: collapse;
   width: 100%;
 }
@@ -933,7 +964,7 @@ table th {
   background-color: #fff;
 }
 
-#fullName {
+#fullname, .name {
   margin-top: 20px;
   margin-right: 0px;
   margin-bottom: 5px;
@@ -1035,7 +1066,7 @@ table th {
 }
 
 .card-front * {
-  font-family: PT Mono, monospace;
+  font-family: "Ubuntu-Bold", monospace;
 }
 
 .cardLogo,
@@ -1100,3 +1131,85 @@ table th {
   text-align: left;
   margin: 12px 0 0 0;
 }
+
+/* Selfie styles */
+
+.selfie-container {
+  display: flex;
+  justify-content: center;
+  width: 16.75rem;
+  height: 21.688rem;
+  align-items: center;
+  flex-direction: column;
+  /* background: #f8f9f9 0 0 no-repeat padding-box;
+  border: 0.063rem dashed #e1e1e1;
+  border-radius: 0.313rem; */
+  opacity: 1;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.selfie-btn {
+  width: 13.2rem;
+  height: 4.2rem;
+  background: #f8f9f9 0 0 no-repeat padding-box;
+  border: 0.063rem solid #283150;
+  border-radius: 0.313rem;
+  opacity: 1;
+  color: #283150;
+  font-size: 1.3rem;
+}
+
+.issue-btn {
+  width: 21.2rem;
+  height: 4.2rem;
+  background: #f8f9f9 0 0 no-repeat padding-box;
+  border: 0.063rem solid #283150;
+  border-radius: 1.1rem;
+  opacity: 1;
+  color: #283150;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.selfie-btn:hover, .issue-btn:hover {
+  background: #5900ff;
+}
+
+.button-license-container {
+  width: 35.875rem;
+  height: 21.688rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  /* background: #f8f9f9 0 0 no-repeat padding-box;
+  border: 0.063rem dashed #e1e1e1;
+  border-radius: 0.313rem; */
+  opacity: 1;
+}
+
+.license-btn {
+  width: 16.563rem;
+  height: 2.75rem;
+  border-radius: 0;
+  background: #283150 0 0 no-repeat padding-box;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.issueButton-wrap {
+  display: flex;
+  justify-content: end;
+}
+
+/* Selfie styles end */

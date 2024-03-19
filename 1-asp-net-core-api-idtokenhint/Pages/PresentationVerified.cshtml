@@ -11,9 +11,10 @@
         <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
             <div class="card">
                 <div class="team-image-wrapper">
-                    <img class="team-member-image" src="https://avatar.iran.liara.run/public/boy?username=Ash" />
+                    <img id="user-img" class="team-member-image"
+                        src="https://avatar.iran.liara.run/public/boy?username=Ash" />
                 </div>
-                <p id="fullName" class="text-blk fullname"></p>
+                <p id="fullname" class="text-blk fullname"></p>
                 <p class="text-blk position"></p>
                 <p class="text-blk feature-text">Issued On</p>
                 <p id="issuanceDate" class="text-blk feature-text"></p>
@@ -108,18 +109,22 @@
                     const firstName = Object.values(claims)[0];
                     const lastName = Object.values(claims)[1];
                     const fullName = firstName + " " + lastName;
-                    document.getElementById("fullName").innerHTML = fullName;
+                    document.getElementById("fullname").innerHTML = fullName;
+
+                    var userImg = document.getElementById("user-img");
 
                     var tbodyRef = document.getElementById('claims').getElementsByTagName('tbody')[0];
                     var idx = 0;
                     for (idx = Object.keys(claims).length - 1; idx >= 0; idx--) {
                         var claimName = Object.keys(claims)[idx];
                         if (claimName == "photo" || claimName == "picture") {
-                            var img = document.createElement('img');
-                            img.width = 100;
-                            img.src = "data:image/*;base64," + decodeURI(claims[Object.keys(claims)[idx]]).replaceAll("_", "/").replaceAll("-", "+");
-                            var row = addTableRowLabel(tbodyRef, claimName);
-                            (row.insertCell(1)).appendChild(img);
+                            userImg.src = "data:image/*;base64," + decodeURI(claims[Object.keys(claims)[idx]]).replaceAll("_", "/").replaceAll("-", "+");
+                            @* var img = document.createElement('img');
+                                img.width = 100;
+                                img.src = "data:image/*;base64," + decodeURI(claims[Object.keys(claims)[idx]]).replaceAll("_", "/").replaceAll("-", "+"); *@
+
+                            //var row = addTableRowLabel(tbodyRef, claimName);
+                            //(row.insertCell(1)).appendChild(img);
                         } else {
                             addTableRow(tbodyRef, claimName, claims[Object.keys(claims)[idx]]);
                         }

@@ -80,6 +80,15 @@ function selfieTaken(id, response) {
   document.getElementById("selfie").src =
     "data:image/png;base64," + response.photo;
   document.getElementById("selfie").style.display = "block";
+  document.getElementById("svg-photo").style.display = "none";
+
+  hideModal();
+
+  //Show issue button
+  document.getElementById("issue-credential").style.display = "block";
+}
+function hideModal() {
+  bootstrap.Modal.getInstance(document.getElementById("myModal")).hide();
 }
 function requestError(requestType, response) {
   hideQRCode();
@@ -99,9 +108,9 @@ function setUserPhoto() {
 }
 
 function hideShowPhotoElements(val) {
-  document.getElementById("take-selfie").style.display = val;
+  /* document.getElementById("take-selfie").style.display = val;
   document.getElementById("imageUpload").style.display = val;
-  document.getElementById("photo-help").style.display = val;
+  document.getElementById("photo-help").style.display = val; */
 }
 
 function uploadImage(e) {

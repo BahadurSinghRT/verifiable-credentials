@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: url(Poppins-Regular.ttf)
+}
+
+* {
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Ubunto-bold';
+}
+
+body{
+  font-family: 'Ubunto-bold';
+  color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(
+    to top,
+    #eeebf2 0%,
+    #eeebf2 50%,
+    #38018d 50%,
+    #38018d 100%
+  );
+}
+
+header {
+  margin: 0px;
+}
+
+
+.container-fluid i {
+  padding-right: 2rem;
+  padding-left: 2rem;
+  color: #ffffff;
+  text-align: justify;
+  position: relative;
+  margin: 0 0px 0px 22px;
+  font-family: 'Ubunto-bold';
+  font-style: normal;
+  font-size: 2.2rem;
+}
+
+.container-fluid img {
+  max-width: 180px;
+  min-height: 50px;
+  margin: -2.5rem auto;
+}
+
+.logoText:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: calc(50% - 30px);
+  height: 52px;
+  width: 1px;
+  background-color: #ffffff;
+  margin: 1rem auto;
+}
+
+.nav-menu {
+  justify-content: flex-end;
+  font-size: 2rem;
+}
+
+.nav-menu a {
+  color: #ffffff;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  min-height: 100vh;
+  align-items: center;
+}
+
+
+.home .content {
+  flex: 1 1 40rem;
+  padding-top: 6.5rem;
+}
+/* Styling the main image */
+
+.home .image {
+  flex: 1 1 30rem;
+}
+
+.home .image img {
+  width: 90%;
+  height: 90%;
+  padding: 1rem;
+  /*animation: float 3s linear infinite;*/
+}

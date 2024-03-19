@@ -8,84 +8,329 @@
     <div class="content">
         <div class="main-text">
             <span class="text">
-                Issue my Verified ID
+                Issue your credentials
             </span>
         </div>
+        @* Take selfie card *@
         <div class="card-list" style="display: flex; justify-content: center;">
-            <div class="card-item">
-                <h3>
-                    Scan the QR code with Microsoft Authenticator to retrieve and save
-                    your Verified ID
-                </h3>
-                <p>Use this to prove who you are with other parties.</p>
-                <br />
-                <br />
-                <p>
-                    How to Scan In the app, open the verified ID tab and tap on the QR
-                    code scan icon.
+            <div class="card-item" style="max-width: 60%;">
+                <p style="text-align:left;">
+                    For selfie, click the Take Selfie button, then scan the QR code with the QR Code Reader app
+                    on your mobile, click 'Open Camera' in the page, take selfie and then click 'Use photo' in the
+                    mobile.
+                    The photo is not persisted anywhere and is just added to the credential you will have in your
+                    wallet.
                 </p>
+                <br /><br />
+                <p>
+                    The photo should be a portrait photo of atleast 200x200 pixels. Glasses, masks, hats, headphones,
+                    head
+                    coverings and face coverings will result in failure in liveness checks during presentations.
+                </p>
+                <br />
+                <br />
                 <div id="message-wrapper" class="message-wrapper">
                     <div id="message">@ViewData["Message"]</div>
                     <br />
                 </div>
-                <div class="qrcodeContainer">
-                    <div class="outerWrapper" id="outerWrapper" style="display: none;">
-                        <div class="innerWrapper">
-                            <div id="qrcode" style="text-align:center; display:none"></div>
+                <div class="container overflow-hidden">
+                    <div class="row gy-5">
+                        <div class="col-4">
+                            <div class="p-3 border bg-light">
+                                <div class="selfie-container">
+                                    <div style="width: 75%; height: 95%; display: flex; justify-content: center;">
+                                        <svg id="svg-photo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 170"
+                                            width="142" height="170" preserveAspectRatio="xMidYMid meet"
+                                            style="width: 100%;height: 100%;transform: translate3d(0px, 0px, 0px);">
+                                            <defs>
+                                                <clipPath id="__lottie_element_19">
+                                                    <rect width="142" height="170" x="0" y="0"></rect>
+                                                </clipPath>
+                                            </defs>
+                                            <g clip-path="url(#__lottie_element_19)">
+                                                <g style="display: none;">
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                </g>
+                                                <g style="display: none;">
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <g>
+                                                            <path></path>
+                                                        </g>
+                                                        <g>
+                                                            <path></path>
+                                                        </g>
+                                                        <g>
+                                                            <path></path>
+                                                        </g>
+                                                        <g>
+                                                            <path></path>
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                </g>
+                                                <g style="display: none;">
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                    <g>
+                                                        <path></path>
+                                                    </g>
+                                                </g>
+                                                <g transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;">
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,70.58599853515625,84.51799774169922)">
+                                                        <path fill="rgb(198,207,229)" fill-opacity="1"
+                                                            d=" M-70.51799774169922,-84.51799774169922 C-70.51799774169922,-84.51799774169922 70.51799774169922,-84.51799774169922 70.51799774169922,-84.51799774169922 C70.51799774169922,-84.51799774169922 70.51799774169922,84.51799774169922 70.51799774169922,84.51799774169922 C70.51799774169922,84.51799774169922 -70.51799774169922,84.51799774169922 -70.51799774169922,84.51799774169922 C-70.51799774169922,84.51799774169922 -70.51799774169922,-84.51799774169922 -70.51799774169922,-84.51799774169922z">
+                                                        </path>
+                                                    </g>
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,71.03500366210938,94.25199890136719)">
+                                                        <path fill="rgb(172,185,213)" fill-opacity="1"
+                                                            d=" M17.333999633789062,19.913999557495117 C13.87600040435791,19.363000869750977 13.79800033569336,9.854000091552734 13.79800033569336,9.854000091552734 C13.79800033569336,9.854000091552734 23.95800018310547,-0.20499999821186066 26.17300033569336,-13.729999542236328 C32.12799835205078,-13.729999542236328 35.81100082397461,-28.110000610351562 29.851999282836914,-33.16899871826172 C30.100000381469727,-38.49399948120117 37.50699996948242,-74.97899627685547 -0.0010000000474974513,-74.97899627685547 C-37.50899887084961,-74.97899627685547 -30.10099983215332,-38.494998931884766 -29.850000381469727,-33.16899871826172 C-35.80799865722656,-28.110000610351562 -32.12900161743164,-13.729999542236328 -26.172000885009766,-13.729999542236328 C-23.95800018310547,-0.20499999821186066 -13.79699993133545,9.854000091552734 -13.79699993133545,9.854000091552734 C-13.79699993133545,9.854000091552734 -13.87600040435791,19.363000869750977 -17.333999633789062,19.913999557495117 C-27.388999938964844,21.513999938964844 -62.262001037597656,36.612998962402344 -68.9520034790039,54.3390007019043 C-69.67400360107422,56.25 -70.06800079345703,73.02200317382812 -70.06800079345703,74.97899627685547 C-70.06800079345703,74.97899627685547 70.06800079345703,74.97899627685547 70.06800079345703,74.97899627685547 C70.06800079345703,73.37899780273438 69.80400085449219,56.95600128173828 69.31300354003906,55.37900161743164 C63.637001037597656,37.20899963378906 27.586000442504883,21.535999298095703 17.33300018310547,19.908000946044922 C17.33300018310547,19.908000946044922 17.333999633789062,19.913999557495117 17.333999633789062,19.913999557495117z">
+                                                        </path>
+                                                    </g>
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,18.993999481201172,20.8700008392334)">
+                                                        <path fill="rgb(114,128,158)" fill-opacity="1"
+                                                            d=" M-17.993999481201172,-18.709999084472656 C-17.993999481201172,-18.709999084472656 18.993999481201172,-18.709999084472656 18.993999481201172,-18.709999084472656 C18.993999481201172,-18.709999084472656 18.993999481201172,-20.709999084472656 18.993999481201172,-20.709999084472656 C18.993999481201172,-20.709999084472656 -17.993999481201172,-20.709999084472656 -17.993999481201172,-20.709999084472656 C-17.993999481201172,-20.709999084472656 -17.993999481201172,-18.709999084472656 -17.993999481201172,-18.709999084472656z M-16.993999481201172,20.709999084472656 C-16.993999481201172,20.709999084472656 -16.993999481201172,-19.709999084472656 -16.993999481201172,-19.709999084472656 C-16.993999481201172,-19.709999084472656 -18.993999481201172,-19.709999084472656 -18.993999481201172,-19.709999084472656 C-18.993999481201172,-19.709999084472656 -18.993999481201172,20.709999084472656 -18.993999481201172,20.709999084472656 C-18.993999481201172,20.709999084472656 -16.993999481201172,20.709999084472656 -16.993999481201172,20.709999084472656z M-17.993999481201172,-19.709999084472656 C-17.993999481201172,-19.709999084472656 -17.993999481201172,-20.709999084472656 -17.993999481201172,-20.709999084472656 C-17.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656 C-18.993999481201172,-20.709999084472656 -18.993999481201172,-19.709999084472656 -18.993999481201172,-19.709999084472656 C-18.993999481201172,-19.709999084472656 -17.993999481201172,-19.709999084472656 -17.993999481201172,-19.709999084472656z">
+                                                        </path>
+                                                    </g>
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,18.993999481201172,148.6230010986328)">
+                                                        <path fill="rgb(114,128,158)" fill-opacity="1"
+                                                            d=" M-17.993999481201172,20.709999084472656 C-17.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656 C18.993999481201172,20.709999084472656 18.993999481201172,18.709999084472656 18.993999481201172,18.709999084472656 C18.993999481201172,18.709999084472656 -17.993999481201172,18.709999084472656 -17.993999481201172,18.709999084472656 C-17.993999481201172,18.709999084472656 -17.993999481201172,20.709999084472656 -17.993999481201172,20.709999084472656z M-18.993999481201172,-20.709999084472656 C-18.993999481201172,-20.709999084472656 -18.993999481201172,19.709999084472656 -18.993999481201172,19.709999084472656 C-18.993999481201172,19.709999084472656 -16.993999481201172,19.709999084472656 -16.993999481201172,19.709999084472656 C-16.993999481201172,19.709999084472656 -16.993999481201172,-20.709999084472656 -16.993999481201172,-20.709999084472656 C-16.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656z M-17.993999481201172,19.709999084472656 C-17.993999481201172,19.709999084472656 -18.993999481201172,19.709999084472656 -18.993999481201172,19.709999084472656 C-18.993999481201172,19.709999084472656 -18.993999481201172,20.709999084472656 -18.993999481201172,20.709999084472656 C-18.993999481201172,20.709999084472656 -17.993999481201172,20.709999084472656 -17.993999481201172,20.709999084472656 C-17.993999481201172,20.709999084472656 -17.993999481201172,19.709999084472656 -17.993999481201172,19.709999084472656z">
+                                                        </path>
+                                                    </g>
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,121.61599731445312,20.8700008392334)">
+                                                        <path fill="rgb(114,128,158)" fill-opacity="1"
+                                                            d=" M17.993999481201172,-20.709999084472656 C17.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656 -18.993999481201172,-20.709999084472656 C-18.993999481201172,-20.709999084472656 -18.993999481201172,-18.709999084472656 -18.993999481201172,-18.709999084472656 C-18.993999481201172,-18.709999084472656 17.993999481201172,-18.709999084472656 17.993999481201172,-18.709999084472656 C17.993999481201172,-18.709999084472656 17.993999481201172,-20.709999084472656 17.993999481201172,-20.709999084472656z M18.993999481201172,20.709999084472656 C18.993999481201172,20.709999084472656 18.993999481201172,-19.709999084472656 18.993999481201172,-19.709999084472656 C18.993999481201172,-19.709999084472656 16.993999481201172,-19.709999084472656 16.993999481201172,-19.709999084472656 C16.993999481201172,-19.709999084472656 16.993999481201172,20.709999084472656 16.993999481201172,20.709999084472656 C16.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656z M17.993999481201172,-19.709999084472656 C17.993999481201172,-19.709999084472656 18.993999481201172,-19.709999084472656 18.993999481201172,-19.709999084472656 C18.993999481201172,-19.709999084472656 18.993999481201172,-20.709999084472656 18.993999481201172,-20.709999084472656 C18.993999481201172,-20.709999084472656 17.993999481201172,-20.709999084472656 17.993999481201172,-20.709999084472656 C17.993999481201172,-20.709999084472656 17.993999481201172,-19.709999084472656 17.993999481201172,-19.709999084472656z">
+                                                        </path>
+                                                    </g>
+                                                    <g opacity="1"
+                                                        transform="matrix(1,0,0,1,121.61599731445312,148.6230010986328)">
+                                                        <path fill="rgb(114,128,158)" fill-opacity="1"
+                                                            d=" M17.993999481201172,18.709999084472656 C17.993999481201172,18.709999084472656 -18.993999481201172,18.709999084472656 -18.993999481201172,18.709999084472656 C-18.993999481201172,18.709999084472656 -18.993999481201172,20.709999084472656 -18.993999481201172,20.709999084472656 C-18.993999481201172,20.709999084472656 17.993999481201172,20.709999084472656 17.993999481201172,20.709999084472656 C17.993999481201172,20.709999084472656 17.993999481201172,18.709999084472656 17.993999481201172,18.709999084472656z M16.993999481201172,-20.709999084472656 C16.993999481201172,-20.709999084472656 16.993999481201172,19.709999084472656 16.993999481201172,19.709999084472656 C16.993999481201172,19.709999084472656 18.993999481201172,19.709999084472656 18.993999481201172,19.709999084472656 C18.993999481201172,19.709999084472656 18.993999481201172,-20.709999084472656 18.993999481201172,-20.709999084472656 C18.993999481201172,-20.709999084472656 16.993999481201172,-20.709999084472656 16.993999481201172,-20.709999084472656z M17.993999481201172,19.709999084472656 C17.993999481201172,19.709999084472656 17.993999481201172,20.709999084472656 17.993999481201172,20.709999084472656 C17.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656 18.993999481201172,20.709999084472656 C18.993999481201172,20.709999084472656 18.993999481201172,19.709999084472656 18.993999481201172,19.709999084472656 C18.993999481201172,19.709999084472656 17.993999481201172,19.709999084472656 17.993999481201172,19.709999084472656z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                                <g style="display: none;">
+                                                    <g>
+                                                        <path></path>
+                                                        <path stroke-linecap="butt" stroke-linejoin="miter"
+                                                            fill-opacity="0" stroke-miterlimit="4"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <img id="selfie" width="142" height="170" style="display: none;" />
+                                    </div>
+                                    @* <button type="button" id="take-selfie" class="selfie-btn">Take a
+                                    selfie</button>
+                                    *@
+                                    <a id="take-selfie" href="#myModal" role="button" class="btn btn-sm selfie-btn"
+                                        data-bs-toggle="modal">Take a
+                                        selfie</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="p-3 border bg-light">
+                                <div class="button-license-container">
+                                    <label for="imageUpload" class="form-label">Upload government issued
+                                        ID</label>
+                                    <input class="form-control form-control-lg" id="imageUpload" type="file"
+                                        accept="image/*" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="p-3">
+                                <div class="issueButton-wrap">
+                                    <a id="issue-credential" href="#myModal" role="button" class="btn issue-btn"
+                                        data-bs-toggle="modal" style="display: none;">Issue
+                                        Credential</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <br />
-                <div id="pinCode" style="display: none"></div>
+            </div>
+            @* End of Take selfie card *@
+
+            @* Issue credentails card *@
+            @* <div class="card-list" style="display: none; justify-content: center;">
+            <div class="card-item">
+            <h3>
+            Scan the QR code with Microsoft Authenticator to retrieve and save
+            your Verified ID
+            </h3>
+            <p>Use this to prove who you are with other parties.</p>
+            <br />
+            <br />
+            <p>
+            How to Scan In the app, open the verified ID tab and tap on the QR
+            code scan icon.
+            </p>
+            <div id="message-wrapper" class="message-wrapper">
+            <div id="message">@ViewData["Message"]</div>
+            <br />
+            </div>
+            <div class="selfie-container">
+            <div>
+            <img id="selfie" width="240" height="320" style="display:none" />
+            </div>
+            </div>
+            <div class="button-holder">
+            <button type="button" id="take-selfie" class="btn secondaryBtn btn-no-action"
+            style="display:none">
+            <p style="padding: 0;">Verify Credential</p>
+            </button>
+            </div>
+            <div class="qrcodeContainer">
+            <div class="outerWrapper" id="outerWrapper" style="display: none;">
+            <div class="innerWrapper">
+            <div id="qrcode" style="text-align:center; display:none"></div>
+            </div>
+            </div>
+            </div>
+            <br />
+            <div id="pinCode" style="display: none"></div>
+            </div>
+            </div> *@
+
+            @* End of issue credentials card*@
+        </div>
+</section>
+
+@* QR code modal *@
+<div class="m-4">
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="modal-title" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" id="issue-container" style="display: none;">
+                        <div class="col-8">
+                            <h3>
+                                Scan the QR code with Microsoft Authenticator to retrieve and save
+                                your Verified ID
+                            </h3>
+                            <p>Use this to prove who you are with other parties.</p>
+                            <br />
+                            <br />
+                            <p>
+                                How to Scan In the app, open the verified ID tab and tap on the QR
+                                code scan icon.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="qrcodeContainer">
+                        <div class="outerWrapper" id="outerWrapper" style="display: none;">
+                            <div class="innerWrapper">
+                                <div id="qrcode" style="text-align:center; display:none"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pinCode" style="display: none"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+@* End of QR code modal *@
 
 
 
 
 <div id="wrap" style="display: none;">
     <div style="text-align: center; background-color: #E0E0E0;">
-        <img id="logo" src="VerifiedCredentialExpert-icon.png" height=200px; />
+        @*
+        <img id="logo" src="VerifiedCredentialExpert-icon.png" height="200px;" />
         <h1 id="idTitle">Verifiable Credential Issuance</h1>
         <h2 id="idSubTitle"></h2>
 
         <p id="photo-help" style="text-align:left; display:none">
-            This verifiable credential includes a photo claim that you can be used for biometric face check during
-            presentation. You can either take a selfie or upload an existing picture of you before you issue the
-            credential.
-            <br /><br />
-            For selfie, click the Take Selfie button, then scan the QR code with the <strong>QR Code Reader app</strong>
-            on your mobile, click 'Open Camera' in the page, take selfie and then click 'Use photo' in the mobile.
-            The photo is not persisted anywhere and is just added to the credential you will have in your wallet.
-            <br /><br />
-            Then click Issue Credential to start the issuance process. When the QR code appears, scan it with your
-            <strong>Microsoft Authenticator</strong> or your <strong>custom wallet</strong> app.
-            <br /><br />
-            The photo should be a portrait photo of atleast 200x200 pixels. Glasses, masks, hats, headphones, head
-            coverings and face coverings will result in failure in liveness checks during presentations.
+        This verifiable credential includes a photo claim that you can be used for biometric face check during
+        presentation. You can either take a selfie or upload an existing picture of you before you issue the
+        credential.
+        <br /><br />
+        For selfie, click the Take Selfie button, then scan the QR code with the <strong>QR Code Reader app</strong>
+        on your mobile, click 'Open Camera' in the page, take selfie and then click 'Use photo' in the mobile.
+        The photo is not persisted anywhere and is just added to the credential you will have in your wallet.
+        <br /><br />
+        Then click Issue Credential to start the issuance process. When the QR code appears, scan it with your
+        <strong>Microsoft Authenticator</strong> or your <strong>custom wallet</strong> app.
+        <br /><br />
+        The photo should be a portrait photo of atleast 200x200 pixels. Glasses, masks, hats, headphones, head
+        coverings and face coverings will result in failure in liveness checks during presentations.
         </p>
 
         <div id="message-wrapper" class="margin-bottom-75" style="display: none">
-            <i class="fas fa-user-check green icon-text-large margin-bottom-25"></i>
-            <div id="message"></div>
+        <i class="fas fa-user-check green icon-text-large margin-bottom-25"></i>
+        <div id="message"></div>
         </div>
+
 
         <button type="button" id="issue-credential" class="button bg-nw-purple text-nw-white">Issue Credential</button>
         <button type="button" id="check-result" class="button bg-nw-purple text-nw-white" style="display:none">Check
-            Result</button>
+        Result</button>
         <button type="button" id="take-selfie" class="button bg-nw-purple text-nw-white" style="display:none">Take
-            Selfie</button>
+        Selfie</button>
 
         <input type='file' id="imageUpload" accept="image/*" class="button bg-nw-blue text-nw-white"
-            style="display:none" />
+        style="display:none" />
         <br /><br />
-        @* <div id="qrcode" style="text-align:center; display:none"></div>
+        <div id="qrcode" style="text-align:center; display:none"></div>
         <br />
-        <div id="pinCode" style="display: none"></div> *@
-        <br />
-        <img id="selfie" width="240" height="320" style="display:none" />
+        <div id="pinCode" style="display: none"></div>
+        *@
+
+
 
         <script src="qrcode.min.js"></script>
         <script src="verifiedid.requestservice.client.js"></script>
@@ -101,9 +346,10 @@
                         .catch(error => displayMessage(error))
                         .then(function (message) {
                             var manifest = JSON.parse(message);
-                            document.getElementById('idTitle').innerHTML = "Issuance of " + manifest.display.card.title + " by " + manifest.display.card.issuedBy;
-                            document.getElementById('idSubTitle').innerHTML = manifest.display.card.description;
-                            document.getElementById('logo').src = manifest.display.card.logo.uri;
+                            @* document.getElementById('idTitle').innerHTML = "Issuance of " + manifest.display.card.title + " by " + manifest.display.card.issuedBy;
+                                document.getElementById('idSubTitle').innerHTML = manifest.display.card.description;
+                                document.getElementById('logo').src = manifest.display.card.logo.uri; *@
+                                console.log('message: ', message);
                             // if the manifest has a claim with type image/jp[e]g, then we should support adding a photo
                             if (message.includes("image/jp")) {
                                 havePhotoClaim = true;
@@ -112,31 +358,39 @@
                         }).catch(error => { console.log(error.message); })
                 }).catch(error => { console.log(error.message); })
 
-            //document.getElementById('issue-credential').addEventListener('click', () => {
-            if (havePhotoClaim) {
-                setUserPhoto();
-                hideShowPhotoElements("none");
-                // make sure the photo is sent to API in backend before we continue
-                setTimeout(requestService.createIssuanceRequest(), 250);
-            } else {
-                requestService.createIssuanceRequest();
-            }
-            //});
+            document.getElementById('issue-credential').addEventListener('click', () => {
+                if (havePhotoClaim) {
+                    setUserPhoto();
+                    hideShowPhotoElements("none");
+                    // make sure the photo is sent to API in backend before we continue
+                    setTimeout(requestService.createIssuanceRequest(), 250);
+                    showModal();
+                } else {
+                    showModal();
+                    requestService.createIssuanceRequest();
+                }
+            });
 
             document.getElementById('take-selfie').addEventListener('click', () => {
                 document.getElementById("selfie").src = "";
                 document.getElementById("selfie").style.display = "none";
-                document.getElementById("imageUpload").style.display = "none";
+                //document.getElementById("imageUpload").style.display = "none";
+                document.getElementById("modal-title").innerText = "Take a selfie";
                 requestService.createSelfieRequest();
             });
 
-            document.getElementById('check-result').addEventListener('click', () => {
+            @* document.getElementById('check-result').addEventListener('click', () => {
                 requestService.pollRequestStatus(requestService.request.id);
-            });
+                }); *@
 
-            document.getElementById('imageUpload').addEventListener('change', function (e) {
-                uploadImage(e)
-            });
+                document.getElementById('imageUpload').addEventListener('change', function (e) {
+                    uploadImage(e)
+                });
+
+            function showModal() {
+                document.getElementById("modal-title").innerText = "Issue credentials";
+                document.getElementById("issue-container").style.display = "flex";
+            }
         </script>
     </div>
 </div>
