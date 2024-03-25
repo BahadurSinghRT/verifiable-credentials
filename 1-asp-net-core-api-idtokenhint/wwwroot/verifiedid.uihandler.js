@@ -159,4 +159,4 @@ var requestService = new RequestService(
   requestError
 );
 // If to do console.log (a lot)
-requestService.logEnabled = false;
+requestService.logEnabled = true;
